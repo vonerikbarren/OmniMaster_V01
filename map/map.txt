@@ -1,0 +1,45 @@
+OmniMaster/
+│
+├── server/
+│   ├── index.js
+│   ├── routes/
+│   └── controllers/
+│
+├── devroot/
+│   ├── cheatsheets/
+│   │   ├── git.md
+│   │   ├── git.json
+│   │   ├── bash.md
+│   │   └── bash.json
+│   └── config/
+│       └── aliases.json
+│
+├── journal/
+│   ├── byTime/
+│   │   └── entries.json
+│   └── byTopic/
+│       └── entries.json
+│
+├── omnios/
+│   ├── web/
+│   │   └── roadmap.md
+│   └── native/
+│       ├── cplusplus/
+│       │   └── notes.md
+│       └── csharp/
+│           └── notes.md
+│
+├── inquirer/
+│   ├── cli.js
+│   └── prompts/
+│       └── mainMenu.js
+│
+├── client/
+│   ├── index.html
+│   ├── styles.css
+│   └── app.js
+│
+├── shared/
+│   └── utils.js
+│
+└── README.md
