@@ -1,0 +1,40 @@
+{
+  "git_username_fix": {
+    "description": "Fix Git repeatedly asking for username when SSH keys already exist.",
+    "steps": [
+      {
+        "id": 1,
+        "action": "Check current remote URL",
+        "command": "git remote -v",
+        "expected_https_example": "origin  https://github.com/vonerikbarren/OmniSense_V01.git",
+        "note": "If remote uses HTTPS, Git will ALWAYS ask for username even with SSH keys."
+      },
+      {
+        "id": 2,
+        "action": "Switch remote to SSH",
+        "command": "git remote set-url origin git@github.com:vonErikBarren/OmniSense_V01.git",
+        "verify": "git remote -v",
+        "expected_ssh_example": "origin  git@github.com:vonErikBarren/OmniSense_V01.git",
+        "note": "Once remote is SSH, Git will NEVER ask for username again."
+      },
+      {
+        "id": 3,
+        "action": "Verify SSH authentication",
+        "command": "ssh -T git@github.com",
+        "expected_output": "Hi vonErikBarren! You've successfully authenticated...",
+        "note": "If this fails, SSH agent may not be loaded."
+      },
+      {
+        "id": 4,
+        "action": "Optional: Start SSH agent",
+        "commands": [
+          "eval $(ssh-agent -s)",
+          "ssh-add ~/.ssh/id_ed25519"
+        ],
+        "note": "Only needed if SSH authentication fails."
+      }
+    ],
+    "root_cause": "Remote URL is still HTTPS, causing Git to ignore SSH keys.",
+    "permanent_fix": "Ensure remote uses SSH format: git@github.com:USERNAME/REPO.git"
+  }
+}
