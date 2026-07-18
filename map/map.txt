@@ -11,7 +11,7 @@ OmniMaster/
 │   │   ├── git.json
 │   │   ├── bash.md
 │   │   └── bash.json
-│   └── config/
+│   └── cMMBonfig/
 │       └── aliases.json
 │
 ├── journal/
